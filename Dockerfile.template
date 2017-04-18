@@ -1,0 +1,7 @@
+FROM xtimon/postgres:%%PG_MAJOR%%
+
+ENV POSTGIS_VERSION=%%POSTGIS_VERSION%%
+
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends postgresql-${PG_MAJOR}-postgis-${POSTGIS_VERSION} postgresql-${PG_MAJOR}-postgis-$POSTGIS_VERSION-scripts \
+	&& rm -rf /var/lib/apt/lists/*
